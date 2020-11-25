@@ -1,0 +1,39 @@
+---
+title: "Movies and TV Shows on Various Streaming Platforms"
+author: "Hannah Burrows, Sabrina Fang, Christian Tsao, and Ryu Ngammuang"
+date: "11/25/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+Explain the domain/data set (feel free to borrow from the brainstorm part of the
+assignment)
+
+
+## Summary
+summary paragraph that includes information calculated by your summary
+information function
+
+
+## Table
+A table of  aggregated data (e.g., that has been "grouped" by one of your
+features); Render your table and describe pertinent observations found in it
+
+
+## Charts
+3 charts display information from the data (what you visualize is up to you).
+Describe the purpose of each chart (e.g., "this chart was intended to show the 
+relationship between..."), render each chart, and describe pertinent 
+observations found in each chart
+
+### Chart 1
+
+
+### Chart 2
+
+
+### Chart 3
