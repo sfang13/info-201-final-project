@@ -7,6 +7,9 @@ output: html_document
 
 
 ```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+
 source("scripts/chart_1.R")
 #other sources go here
 
@@ -40,13 +43,14 @@ Describe the purpose of each chart (e.g., "this chart was intended to show the
 relationship between..."), render each chart, and describe pertinent 
 observations found in each chart
 
-### Chart 1 - Popularity of Genres
+### Chart 1 - Popularity of Genres for TV Shows
 ```{r, echo = FALSE}
 chart_1(netflix_data, disney_data, amazon_data)
 ```
-This chart was intended to show the popularity of various genres on each of the
-streaming services, in order to analyze if there was a particular streaming
-service that was preferred for specific genres. 
+This chart was intended to show the popularity of various genres of TV Shows on 
+each of the streaming services, in order to analyze if there was a particular
+streaming service that was preferred for specific genres.
+This chart reveals that ___
 
 ### Chart 2
 
