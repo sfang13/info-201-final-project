@@ -78,9 +78,9 @@ ratings_plot <- function(amazon_prime, disney_plus, netflix) {
     geom_line(aes(color = mpa_rating)) +
     geom_point(aes(color = mpa_rating)) +
     labs(
-      title = "# Of Movies Released Each Year For Each Age Demographic",
-      x = "Year",
-      y = "# Of Movies",
+      title = "# Of Movies/Shows On Netflix, Amazon Prime, and Disney+ For Each Age Demographic by Release Year",
+      x = "Release Year",
+      y = "# Of Movies/Shows",
       color = "Rating"
     ) +
     scale_color_manual(
