@@ -7,10 +7,9 @@ output: html_document
 
 
 ```{r setup, include=FALSE}
-library(dplyr)
-library(ggplot2)
 
 source("scripts/chart_1.R")
+source("scripts/chart_2.R")
 #other sources go here
 
 amazon_data <- read.csv("data/amazon_prime_tv_shows.csv", stringsAsFactors = FALSE)
@@ -24,7 +23,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Introduction
+With the COVID-19 pandemic forcing many people to stay home, many have turned towards means of entertainment that don’t require going outside or interacting with others, such as using streaming services like Amazon Prime Video, Disney+, and Netflix to watch movies and TV shows. Analyzing how these streaming platforms and their users may have changed during the pandemic may provide insight into how we have adjusted to life in isolation. Additionally, this analysis may reveal insights into how streaming services have improved and adjusted overtime to increase subscriptions and revenue, how demographics of different streaming services vary and have changed over time, and how the popularity of different genres compare within each streaming service and compared to other streaming services. 
 
+To answer these questions, this report uses data collected by various kaggle users about movies and TV shows on three popular streaming services – **Amazon Prime Video**, **Disney+**, and **Netflix**. 
 
 
 ## Summary
