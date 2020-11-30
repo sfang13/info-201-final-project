@@ -20,9 +20,23 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Introduction
-With the COVID-19 pandemic forcing many people to stay home, many have turned towards means of entertainment that don’t require going outside or interacting with others, such as using streaming services like Amazon Prime Video, Disney+, and Netflix to watch movies and TV shows. Analyzing how these streaming platforms and their users may have changed during the pandemic may provide insight into how we have adjusted to life in isolation. Additionally, this analysis may reveal insights into how streaming services have improved and adjusted overtime to increase subscriptions and revenue, how demographics of different streaming services vary and have changed over time, and how the popularity of different genres compare within each streaming service and compared to other streaming services. 
+With the COVID-19 pandemic forcing many people to stay home, many have turned
+towards means of entertainment that don’t require going outside or interacting
+with others, such as using streaming services like Amazon Prime Video, Disney+,
+and Netflix to watch movies and TV shows. Analyzing how these streaming
+platforms and their users may have changed during the pandemic may provide
+insight into how we have adjusted to life in isolation. Additionally, this
+analysis may reveal insights into how streaming services have improved and
+adjusted overtime to increase subscriptions and revenue, how demographics of
+different streaming services vary and have changed over time, and how the
+popularity of different genres compare within each streaming service and
+compared to other streaming services. 
 
-To answer these questions, this report uses data collected by various kaggle users about movies and TV shows on three popular streaming services – **Amazon Prime Video**, **Disney+**, and **Netflix**. 
+To answer these questions, this report uses data collected by various kaggle
+users about movies and TV shows on three popular streaming services –--
+[Amazon Prime Video](https://www.kaggle.com/nilimajauhari/amazon-prime-tv-shows),
+[Disney+](https://www.kaggle.com/unanimad/disney-plus-shows), and
+[Netflix](https://www.kaggle.com/shivamb/netflix-shows). 
 
 
 ## Summary
@@ -42,14 +56,37 @@ relationship between..."), render each chart, and describe pertinent
 observations found in each chart
 
 ### Chart 1 - Popularity of Genres for TV Shows
-```{r, echo = FALSE, warning=FALSE, message=FALSE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.dim=c(10, 6)}
 chart_1(netflix_data, disney_data, amazon_data)
 ```
 
 This chart was intended to show the popularity of various genres of TV Shows on 
 each of the streaming services, in order to analyze if there was a particular
-streaming service that was preferred for specific genres.
-This chart reveals that ___
+streaming service that was preferred for specific genres.(Note: this was done
+by comparing the percent of total shows on each platform for each genre; for
+ease of viewing, only the top 5 genres from each platform are shown, and so
+percents may not total to 100).
+
+This chart reveals that there are definitely most popular genres for each
+platform, and that they vary between platforms. For example, the most popular
+genre on Disney+, by far, is Animation, at 52.41% of its total TV streaming
+library, while the most popular on Amazon Prime Video is Drama at 51.15%, and
+the most popular on Netflix is International at 39.61%. While there are
+definitely potential questions in how these shows' genres were defined (what
+exactly constitutes a "Drama", for example?), this does reveal some interesting
+insights into the popularity of various genres on these streaming services, as
+well as potentially how these platforms have optimized to increase their
+subscriptions and revenue. For example, there is very little overlap in the
+most popular genres on each platform (Comedy, Documentary, Kids, and Action are
+the only overlapping genres between the platforms, and not one of them made it
+into the top 5 in all 3 platforms). In addition, the most popular genre on each
+platform didn't make it to the top 5 most popular genres for either of the other
+platforms. While this could be a coincidence, this could also be an intentional
+action on behalf of the streaming platforms to increase subscriptions and
+maximize revenue by seeking to fill a niche/provide primarily content users
+would be unable to find on other platforms, thus increasing the chances that the
+average person subscribes to all three platforms instead of just one and therein
+maximizing the profit of all three companies.
 
 ### Chart 2
 
