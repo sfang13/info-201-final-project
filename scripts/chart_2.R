@@ -4,25 +4,19 @@ library("dplyr")
 library("ggplot2")
 library("stringr")
 
-# reading in csv files
-
-amazon_prime <- read.csv("data/amazon_prime_tv_shows.csv",
-  stringsAsFactors = FALSE
-)
-disney_plus <- read.csv("data/disney_plus_shows.csv", stringsAsFactors = FALSE)
-netflix <- read.csv("data/netflix_movies_and_tv.csv", stringsAsFactors = FALSE)
-
 # writing line plot function
 
-ratings_plot <- function(amazon_prime, disney_plus, netflix) {
-  all_ratings <- amazon_prime %>% # filtering for year and rating
+ratings_plot <- function(amazon_data, disney_data, netflix_data) {
+  # filtering for year and rating
+  all_ratings <- amazon_data %>%
     select(Year.of.release, Age.of.viewers) %>%
     summarise(year = as.character(Year.of.release), rated = Age.of.viewers) %>%
-    bind_rows(select(disney_plus, year, rated)) %>%
+    bind_rows(select(disney_data, year, rated)) %>%
     filter(year == substr(year, start = 1, stop = 4)) %>%
     summarise(release_year = as.numeric(year), rating = rated) %>%
-    bind_rows(select(netflix, release_year, rating))
-  mpa_film_ratings <- all_ratings %>% # standardizing the rating
+    bind_rows(select(netflix_data, release_year, rating))
+  # standardizing the rating
+  mpa_film_ratings <- all_ratings %>%
     pull(rating) %>%
     str_replace_all(c(
       "TV-G" = "G", "TV-Y" = "G", "All" = "G", "TV-PG" = "PG",
@@ -34,7 +28,8 @@ ratings_plot <- function(amazon_prime, disney_plus, netflix) {
     as.data.frame() %>%
     bind_cols(select(all_ratings, release_year)) %>%
     rename(., rated = ., year = release_year)
-  ratings_by_year <- mpa_film_ratings %>% # organizing ratings by year for plot
+  # organizing ratings by year for plot
+  ratings_by_year <- mpa_film_ratings %>%
     group_by(year) %>%
     summarise(
       num_rated = coalesce(table(rated == "G")["TRUE"], 0),
@@ -70,17 +65,21 @@ ratings_plot <- function(amazon_prime, disney_plus, netflix) {
         mpa_rating = "NC-17"
       )) %>%
     filter(!is.na(year))
-  ggplot(data = ratings_by_year, aes( # line plot of ratings by year
+  # line plot of ratings by year
+  ggplot(data = ratings_by_year, aes(
     x = year,
     y = num_rated,
-    group = mpa_rating,
+    group = mpa_rating
   )) +
     geom_line(aes(color = mpa_rating)) +
     geom_point(aes(color = mpa_rating)) +
     labs(
-      title = "# Of Movies/Shows On Netflix, Amazon Prime, and Disney+ For Each Age Demographic by Release Year",
+      title = paste(
+        "Content On Netflix, Amazon Prime, and Disney+",
+        "By Age Demographic and Release Year"
+      ),
       x = "Release Year",
-      y = "# Of Movies/Shows",
+      y = "# Of Movies/Shows (Content)",
       color = "Rating"
     ) +
     scale_color_manual(
