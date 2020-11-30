@@ -9,6 +9,14 @@ amazon_df <- read.csv("data/amazon_prime_tv_shows.csv", stringsAsFactors = FALSE
 disney_df <- read.csv("data/disney_plus_shows.csv", stringsAsFactors = FALSE)
 netflix_df <- read.csv("data/netflix_movies_and_tv.csv", stringsAsFactors = FALSE)
 
+amazon_df <- amazon_df %>% 
+  rename(
+    imdb_rating = IMDb.rating,
+    genre = Genre,
+    language = Language,
+    year = Year.of.release
+  )
+
 summary_table <- function(dataset) {
   get_summary <- dataset %>%
   group_by(year) %>%
