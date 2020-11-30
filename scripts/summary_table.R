@@ -2,6 +2,8 @@ library("dplyr")
 library("tidyr")
 library("styler")
 library("lintr")
+library("formattable")
+library("tidyverse")
 
 # read the data file
 
@@ -16,6 +18,12 @@ amazon_df <- amazon_df %>%
     language = Language,
     year = Year.of.release
   )
+
+# The group calculation was done because each of the data sets
+# we are using have different shows and movies from different companies.
+# The data can be applied to show the total number of movies/shows in the set,
+# the highest and lowest ratings, the most common language used, most common rating
+# and the most common genre between all the shows/movies.
 
 summary_table <- function(dataset) {
   get_summary <- dataset %>%
@@ -38,6 +46,17 @@ summary_table <- function(dataset) {
   arrange(year)
   return(get_summary)
 }
+
+summary_table_format <- formattable(summary_table,
+  align = c("l", "c", "c"),
+  list(`Indicator Name` = formatter(
+    "span",
+    style = ~ style(
+      color = "grey",
+      font.weight = "bold"
+    )
+  ))
+)
 
 # I included the table to make summarize the big data frames and make the information
 # easier to visualize when looking at the summarized table.
