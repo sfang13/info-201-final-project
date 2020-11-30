@@ -70,8 +70,8 @@ ratings_plot <- function(amazon_prime, disney_plus, netflix) {
         mpa_rating = "NC-17"
       )) %>%
     filter(!is.na(year))
-  ggplot(data = ratings_by_year, aes(
-    x = year, # line plot of ratings by year
+  ggplot(data = ratings_by_year, aes( # line plot of ratings by year
+    x = year,
     y = num_rated,
     group = mpa_rating,
   )) +
