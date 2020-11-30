@@ -8,6 +8,7 @@ output: html_document
 
 ```{r setup, include=FALSE, warning=FALSE}
 
+source("scripts/summary_info.R")
 source("scripts/chart_1.R")
 source("scripts/chart_2.R")
 source("scripts/chart_3.R")
@@ -50,8 +51,9 @@ users about movies and TV shows on three popular streaming services –--
 
 
 ## Summary
-summary paragraph that includes information calculated by your summary
-information function
+One value that could be useful to look at is the average IMDb ratings for all the movies in the dataset. For Amazon Prime, that rating is `r summ_info$ama_avg_rating`, while Netflix's average rating is `r summ_info$net_avg_rating`. Looking at the average IMDb values for a streaming service allows us to see how well received the average show on that streaming service is, and we can compare how well the average shows from each streaming service does. Here we can see that Amazon Prime's shows scores, on average, about 1 point higher than Netflix's. 
+  
+Other values that could be useful is the oldest show that a streaming service has to offer, and what that =show is called. On Amazon Prime, the oldest show is `r summ_info$ama_old_title`, which released on `r summ_info$ama_old_year`, while Netflix's oldest show is `r summ_info$net_old_title`, which released on `r summ_info$net_old_year`. Looking at the oldest show on a streaming service can let us see how dedicated a streaming service is, because older shows tend to have lower view counts (due to the fewer amount of "new watchers"). Here we can see that Netflix's oldest show is just 1 year older than Amazon Prime's oldest show.
 
 
 ## Table
