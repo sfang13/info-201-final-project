@@ -3,57 +3,35 @@ library("tidyr")
 library("styler")
 library("lintr")
 
-get_summary_info <- function(dataset) {
-  summary_table <- list()
-  summary_table$number_of_movies <- nrow(dataset)
-  summary_table$averge_imdb_rating/year <- dataset %>%
-    group_by(year) %>%
-    summarise(
-      average_imdb_rating = mean(imdb_rating)
-    )
-    select(average_imdb_rating)
-  summary_table$averge_imdb_rating/genre <- dataset %>%
-    group_by(genre) %>%
-    summarise(
-      average_imdb_rating = mean(imdb_rating)
-    )
-    select(average_imdb_rating)
-  summary_table$most_common_genre <- dataset %>%
-    group_by(genre) %>%
-    summarise(
-      most_genre = max(genre)
-    )
-    select(most_genre)
-  summary_table$least_common_genre <- dataset %>%
-    group_by(genre) %>%
-    summarise(
-      least_genre = min(genre)
-    )
-    select(least_genre)
-  summary_table$year_with_most_movies <- dataset %>%
-    group_by(year) %>%
-    summarise(num = n()) %>%
-    arrange(desc(num)) %>%
-    head(1) %>%
-    select(year)
-  summary_table$most_common_language <- dataset %>%
-    group_by(language) %>%
-    summarise(
-      most_language = max(language)
-    )
-    select(most_language)
-  summary_table$least_common_language <- dataset %>%
-    group_by(language) %>%
-    summarise(
-      least_language = min(language)
-    )
-    select(least_language)
-  
-  return (summary_table)
+# read the data file
+
+amazon_df <- read.csv("data/amazon_prime_tv_shows.csv", stringsAsFactors = FALSE)
+disney_df <- read.csv("data/disney_plus_shows.csv", stringsAsFactors = FALSE)
+netflix_df <- read.csv("data/netflix_movies_and_tv.csv", stringsAsFactors = FALSE)
+
+summary_table <- function(dataset) {
+  get_summary <- dataset %>%
+  group_by(year) %>%
+  drop_na() %>%
+  na.omit() %>%
+  filter(!(plot == "N/A" | imdb_rating == "N/A" | imdb_votes == "N/A" | awards == "N/A"
+           | country == "N/A" | language == "N/A" | actors == "N/A" | writer == "N/A"
+           | director == "N/A" | genre == "N/A" | runtime == "N/A" | released_at == "N/A"
+           | rated == "N/A" | metascore == "N/A" | imdb_id == "")
+  ) %>%
+  summarise(
+    total_movies = n(),
+    highest_rating = max(imdb_rating, na.rm = TRUE),
+    lowest_rating = min(imdb_rating, na.rm = TRUE),
+    most_common_language = max(language, na.rm = TRUE),
+    most_common_rating = max(rated, na.rm = TRUE),
+    most_common_genre = max(genre, na.rm = TRUE),
+  ) %>%
+  arrange(year)
+  return(get_summary)
 }
 
 # I included the table to make summarize the big data frames and make the information
 # easier to visualize when looking at the summarized table.
-# The table shows the average imdb rating per year, the average imdb rating per type,
-# the most and least common genre, the year with the most movies released, and the most
-# and last common language used in all of the movies.
+# The table shows the total number of movies in that year, the highest and lowest ratings
+# in that year, the most common genre, and the most  common language used in all of the movies.
