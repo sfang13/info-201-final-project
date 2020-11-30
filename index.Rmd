@@ -6,15 +6,25 @@ output: html_document
 ---
 
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, warning=FALSE}
 
 source("scripts/chart_1.R")
 source("scripts/chart_2.R")
-#other sources go here
+source("scripts/chart_3.R")
+# other sources go here
 
-amazon_data <- read.csv("data/amazon_prime_tv_shows.csv", stringsAsFactors = FALSE)
-disney_data <- read.csv("data/disney_plus_shows.csv", stringsAsFactors = FALSE)
-netflix_data <- read.csv("data/netflix_movies_and_tv.csv", stringsAsFactors = FALSE)
+amazon_data <- read.csv("data/amazon_prime_tv_shows.csv",
+  stringsAsFactors = FALSE
+)
+disney_data <- read.csv("data/disney_plus_shows.csv",
+  stringsAsFactors = FALSE
+)
+netflix_data <- read.csv("data/netflix_movies_and_tv.csv",
+  stringsAsFactors = FALSE
+)
+netflix_2_data <- read.csv("data/netflix_movies_and_tv_imdb_ratings.csv",
+  stringsAsFactors = FALSE
+)
 
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -36,7 +46,7 @@ To answer these questions, this report uses data collected by various kaggle
 users about movies and TV shows on three popular streaming services –--
 [Amazon Prime Video](https://www.kaggle.com/nilimajauhari/amazon-prime-tv-shows),
 [Disney+](https://www.kaggle.com/unanimad/disney-plus-shows), and
-[Netflix](https://www.kaggle.com/shivamb/netflix-shows). 
+[Netflix](https://www.kaggle.com/shivamb/netflix-shows) (which has a [second source](https://www.kaggle.com/sarahjeeeze/imdbfile). 
 
 
 ## Summary
@@ -88,7 +98,20 @@ would be unable to find on other platforms, thus increasing the chances that the
 average person subscribes to all three platforms instead of just one and therein
 maximizing the profit of all three companies.
 
-### Chart 2
+### Chart 2 - Age Demographic of Content in Streaming Services
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.dim=c(10, 6)}
+ratings_plot(amazon_data, disney_data, netflix_data)
+```
 
+This chart was intended to show the amount of content for each age group from each year on all of the streaming services combined to identify trends in content for each age group and how the pandemic might have altered content production. This was done by comparing the # of Shows or Movies produced each year for each age group. Note that the age groups are classified by the Motion Picture Association film rating system.
 
-### Chart 3
+This chart reveals a content growth trend for each age group, and that content grows at a different rate for each age group. For example, approaching 2018, the amount of content rated R seemed to increase at an exponential rate, while the content growth rate of NC-17 material seemed to remain static. However, most age groups experienced a content decline in 2019, and an even steeper decline in 2020. In addition, most age groups had the max amount of content production in 2018, which indicates that streaming services were heavily saturated with new content in 2018. Though the growth rate of content per age group is different, production often increases and decreases at the same time for all age groups. The overall decline in 2020 is likely correlated with the pandemic, as the economy and and production process has been slowed. Even though the data is not complete (because 2020 is not over), it is unlikely that enough content will be produced in any age group to surpass growth rates leading up to 2018. Although the exponential increase of rated R material can not be explained by this chart, it suggests that interest in rated R content has increased, resulting in a wider audience and more revenue.
+
+### Chart 3 - IMDB Movie Ratings of Movie Runtimes
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.dim=c(10, 6)}
+imdb_ratings_plot(disney_data, netflix_2_data)
+```
+
+This chart was intended to organize the IMDB ratings of movies from two streaming services based on their runtime to find how movie runtime correlates with IMDB rating and also identify the most popular movie rating and runtime on each streaming service. This was done by comparing IMDB ratings to runtimes to locate runtimes and ratings with a high (or low) concentration of movies. Note that that runtime is the total duration of a film, so TV Shows can not be included in this chart.
+
+This chart reveals movie runtimes and IMDB ratings which have the highest concentration of movies from Netflix and Disney+. For example, the highest concentration of movies from Netflix exists where the IMDB rating is 7. In contrast, the highest concentration of movies from Disney+ exists where the IMDB rating is 6.5. In addition, Netflix has multiple films with a rating of 0, while Disney+ has a group of films with runtimes between 0 and 15 minutes. Most movies in both streaming services have a rating greater than 3 or less than 9, indicating that movies from Netflix and Disney+ deviate from their average IMDB rating a similar amount. Netflix has more movies and a higher average IMDB rating than Disney+, which likely accounts for part of its large subscriber base. Thus, this chart illustrates how Netflix motivates its subscriber base with a larger amount of films because its average IMDB rating is not significantly higher than the average rating for Disney+. The highest rated movie on Netflix is 66 minutes while the highest rated movie on Disney+ is 124 minutes, which suggests that Disney+ contains longer films which attract wider audiences while Netflix contains shorts films which attract wider audiences.

@@ -1,6 +1,7 @@
 # packages
 
 library("dplyr")
+library("plotly")
 library("ggplot2")
 library("stringr")
 
@@ -66,24 +67,26 @@ ratings_plot <- function(amazon_data, disney_data, netflix_data) {
       )) %>%
     filter(!is.na(year))
   # line plot of ratings by year
-  ggplot(data = ratings_by_year, aes(
-    x = year,
-    y = num_rated,
-    group = mpa_rating
-  )) +
-    geom_line(aes(color = mpa_rating)) +
-    geom_point(aes(color = mpa_rating)) +
-    labs(
+  plot_ly(
+    data = ratings_by_year,
+    x = ~year,
+    y = ~num_rated,
+    name = ~mpa_rating,
+    type = "scatter",
+    mode = "lines+markers",
+    color = ~mpa_rating,
+    text = ~ paste(
+      "Release Year:", year, "<br># of Movies/Shows:",
+      num_rated
+    ),
+    colors = c("#5ab4ac", "coral", "maroon", "firebrick1", "olivedrab4")
+  ) %>%
+    layout(
       title = paste(
         "Content On Netflix, Amazon Prime, and Disney+",
         "By Age Demographic and Release Year"
       ),
-      x = "Release Year",
-      y = "# Of Movies/Shows (Content)",
-      color = "Rating"
-    ) +
-    scale_color_manual(
-      values = c("#5ab4ac", "coral", "maroon", "firebrick1", "olivedrab4")
-    ) +
-    theme(axis.text.x.bottom = element_text(size = 10))
+      xaxis = list(title = "Release Year"),
+      yaxis = list(title = "# Of Movies/Shows (Content)")
+    )
 }
