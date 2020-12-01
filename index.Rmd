@@ -69,12 +69,14 @@ library("knitr")
 library("kableExtra")
 kable(
   summary_table(disney_data), align = "c",
-  col.names = c("Year", "No. of Movies", "Highest rating", "Lowest rating", "Most common language", "Most common rating", "Most common genre")
+  col.names = c("Year", "No. of Movies", "Highest rating"
+                , "Lowest rating", "Most common language"
+                , "Most common rating", "Most common genre")
   ) %>%
   kable_styling(font_size = 15) %>%
   kable_styling(latex_options = "scale_down") %>%
-  column_spec(3, color = 'green') %>%
-  column_spec(4, color = 'red')
+  column_spec(3, color = "green") %>%
+  column_spec(4, color = "red")
 ```
 
 From the table, we can tell one key insight about Disney prime shows is that in the past few years, the general rating of shows produced are 'PG-13', and we can also see that English is the primary language used in the movies produced throughout all the years. We can also see a trend that shows released in the early 1900s were generally rated 'G', and later the ratings for shows started to become 'PG', and then in the 2000s, shows became generally rated 'PG-13'.
