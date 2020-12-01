@@ -48,7 +48,7 @@ To answer these questions, this report uses data collected by various kaggle
 users about movies and TV shows on three popular streaming services –--
 [Amazon Prime Video](https://www.kaggle.com/nilimajauhari/amazon-prime-tv-shows),
 [Disney+](https://www.kaggle.com/unanimad/disney-plus-shows), and
-[Netflix](https://www.kaggle.com/shivamb/netflix-shows) (which has a [second source](https://www.kaggle.com/sarahjeeeze/imdbfile). 
+[Netflix](https://www.kaggle.com/shivamb/netflix-shows) (which has a [second source](https://www.kaggle.com/sarahjeeeze/imdbfile)). 
 
 
 ## Summary
@@ -83,11 +83,6 @@ From the table, we can tell one key insight about Disney prime shows is that in 
 As we observe the genres, we can also see that 'Adventure' and 'Comedy' are the 2 most common genres throughout the history of Disney prime shows.
 
 ## Charts
-3 charts display information from the data (what you visualize is up to you).
-Describe the purpose of each chart (e.g., "this chart was intended to show the 
-relationship between..."), render each chart, and describe pertinent 
-observations found in each chart
-
 ### Chart 1 - Popularity of Genres for TV Shows
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.dim=c(10, 6)}
 chart_1(netflix_data, disney_data, amazon_data)
