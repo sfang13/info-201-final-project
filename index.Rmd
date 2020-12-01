@@ -8,6 +8,7 @@ output: html_document
 
 ```{r setup, include=FALSE, warning=FALSE}
 
+source("scripts/summary_table.R")
 source("scripts/summary_info.R")
 source("scripts/chart_1.R")
 source("scripts/chart_2.R")
@@ -56,10 +57,28 @@ One value that could be useful to look at is the average IMDb ratings for all th
 Other values that could be useful is the oldest show that a streaming service has to offer, and what that =show is called. On Amazon Prime, the oldest show is `r summ_info$ama_old_title`, which released on `r summ_info$ama_old_year`, while Netflix's oldest show is `r summ_info$net_old_title`, which released on `r summ_info$net_old_year`. Looking at the oldest show on a streaming service can let us see how dedicated a streaming service is, because older shows tend to have lower view counts (due to the fewer amount of "new watchers"). Here we can see that Netflix's oldest show is just 1 year older than Amazon Prime's oldest show.
 
 
-## Table
-A table of  aggregated data (e.g., that has been "grouped" by one of your
-features); Render your table and describe pertinent observations found in it
+## Aggregate Table
+The table created displays the year, the highest and lowest rating of that year,
+the total number of movies that released in that year, the most common language used,
+the most common rating and the most common genre between all movies released that year.
+The data was grouped by year to show summarized information for each year.
+Below is an example of the summarized data for Disney prime movies and TV shows.
 
+```{r aggregate table, echo = FALSE,message = FALSE, warning = FALSE}
+library("knitr")
+library("kableExtra")
+kable(
+  summary_table(disney_data), align = "c",
+  col.names = c("Year", "No. of Movies", "Highest rating", "Lowest rating", "Most common language", "Most common rating", "Most common genre")
+  ) %>%
+  kable_styling(font_size = 15) %>%
+  kable_styling(latex_options = "scale_down") %>%
+  column_spec(3, color = 'green') %>%
+  column_spec(4, color = 'red')
+```
+
+From the table, we can tell one key insight about Disney prime shows is that in the past few years, the general rating of shows produced are 'PG-13', and we can also see that English is the primary language used in the movies produced throughout all the years. We can also see a trend that shows released in the early 1900s were generally rated 'G', and later the ratings for shows started to become 'PG', and then in the 2000s, shows became generally rated 'PG-13'.
+As we observe the genres, we can also see that 'Adventure' and 'Comedy' are the 2 most common genres throughout the history of Disney prime shows.
 
 ## Charts
 3 charts display information from the data (what you visualize is up to you).

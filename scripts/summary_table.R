@@ -53,17 +53,6 @@ summary_table <- function(dataset) {
   return(get_summary)
 }
 
-summary_table_format <- formattable(summary_table,
-  align = c("l", "c", "c"),
-  list(`Indicator Name` = formatter(
-    "span",
-    style = ~ style(
-      color = "grey",
-      font.weight = "bold"
-    )
-  ))
-)
-
 # I included the table to make summarize the big data frames
 # and make the information easier to visualize when looking
 # at the summarized table. The table shows the total number
