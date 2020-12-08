@@ -24,6 +24,6 @@ source("scripts/chart_3.R")
 
 server <- function(input, output) {
   output$chart1 <- renderPlotly(
-    return(chart_1(netflix_data, disney_data, amazon_data))
+    return(chart_1(netflix_data, disney_data, amazon_data, input$color))
   )
 }

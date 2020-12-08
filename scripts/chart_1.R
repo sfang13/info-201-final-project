@@ -5,7 +5,7 @@ library(RColorBrewer)
 library(plotly)
 library(lintr)
 
-chart_1 <- function(netflix_data, disney_data, amazon_data) {
+chart_1 <- function(netflix_data, disney_data, amazon_data, color) {
   #organizing and universalizing netflix data
   netflix_genres <- netflix_data %>%
     filter(type == "TV Show") %>%
@@ -89,7 +89,7 @@ chart_1 <- function(netflix_data, disney_data, amazon_data) {
     labs(y = "Percent of Total Shows on Platform",
          x = "Streaming Platforms",
          title = "Genre Popularity for TV Shows on Three Streaming Platforms") +
-    scale_fill_brewer(palette = "Spectral") +
+    scale_fill_brewer(palette = color) +
     theme(plot.title = element_text(hjust = 0.5), legend.title.align = 0.5)
 
   #making the bar chart interactive

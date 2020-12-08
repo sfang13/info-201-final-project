@@ -44,13 +44,26 @@ overview_mainpanel <- mainPanel(
 
 #creates side panel with widgets for chart 1 page
 chart1_side_panel <- sidebarPanel(
-  
+  selectInput(
+    inputId = "color",
+    label = "Chart Colors",
+    choices = list(
+      "Rainbow" = "Spectral",
+      "Red to Green" = "RdYlGn",
+      "Red to Blue" = "RdYlBu",
+      "Pink to Green" = "PiYG",
+      "Purple to Green" = "PRGn",
+      "Brown to Teal" = "BrBG",
+      "Random" = "Paired"
+    )
+  )
 )
 
 #creates main panel with actual bar graph for chart 1 page
 chart1_main_panel <- mainPanel(
-  h1("What genres are most popular on each streaming platform? Do these align
-     with other streaming platforms?"),
+  h1("What genres are most popular on each streaming platform?"),
+  h2("Do these align with other streaming platforms?"),
+  p("Our first question "),
   plotlyOutput("chart1")
 )
 
