@@ -1,19 +1,43 @@
 library("shiny")
 library("plotly")
+library("shinythemes")
 
 # Chris' overview page --------
 overview_page <- tabPanel (
   "Data Visualization on Movies and TV Shows",
-  overview_side_panel,
-  overview_main_panel
+  sidebarLayout(
+    overview_side_panel
+    ),
+  mainpanel(
+    overview_main_panel
+  )
 )
 
-overview_side_panel <- saidebarPanel(
+overview_side_panel <- sidebarPanel(
   
 )
 
 overview_main_panel <- mainPanel(
-  
+  h1("Overview"),
+  h2("Purpose:"),
+  p("This project's purpose is to analyze TV shows and movies from",
+    strong("Netflix"), ", ", strong("Amazon Prime"), ", and ", strong("Disney Plus"), 
+    "to give ourselves further insight and reveal trends that
+    have developed over the years. "),
+  h4("These are the sources we have used in this project:"),
+  a("     1. Netflix data", "https://www.kaggle.com/shivamb/netflix-shows"),
+  p(""),
+  p(""),
+  p("From this data observation, we will be able to answer
+    the following questions:"),
+  h5("What are the user demographics of various streaming platforms?
+     How have they changed over time?"),
+  h5("What genres are most popular on each streaming platform?
+     How have the popular genres changed over time?"),
+  h5("How have the duration, ratings, viewers, and genres of tv shows and movies
+     on various streaming platforms changed over the years? In 2020?"),
+  p("We will be using our skills that we've learned throughout this quarter to analyze
+    the datasets and obtain valuable information from them.")
 )
 
 
@@ -46,8 +70,11 @@ chart_page_one <- tabPanel(
 
 
 #ui for creating shinyApp
-ui <- navbarPage(
+ui <- fluidpage(
+  includeCSS("style.css"),
+  navbarPage(
   "title",
   page_one,
   chart_page_one
+  )
 )
