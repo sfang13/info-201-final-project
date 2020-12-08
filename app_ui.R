@@ -1,11 +1,19 @@
 library("shiny")
 library("plotly")
 
-
-page_one <- tabPanel (
+# Chris' overview page --------
+overview_page <- tabPanel (
   "Page one",
   sidebarLayout(),
   mainPanel()
+)
+
+overview_side_panel <- saidebarPanel(
+  
+)
+
+overview_main_panel <- mainPanel(
+  
 )
 
 
