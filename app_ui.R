@@ -35,8 +35,8 @@ overview_mainpanel <- mainPanel(
      How have the popular genres changed over time?"),
   h5("How have the duration, ratings, viewers, and genres of tv shows and movies
      on various streaming platforms changed over the years? In 2020?"),
-  p("We will be using our skills that we've learned throughout this quarter to analyze
-    the datasets and obtain valuable information from them.")
+  p("We will be using our skills that we've learned throughout this quarter to
+    analyze the datasets and obtain valuable information from them."),
 )
 
 
@@ -69,10 +69,10 @@ chart_page_one <- tabPanel(
 
 
 #ui for creating shinyApp
-ui <- fluidpage(
+ui <- fluidPage(
   includeCSS("style.css"),
   navbarPage(
-  "title",
+  "Streaming Services",
   overview_page,
   chart_page_one
   )
