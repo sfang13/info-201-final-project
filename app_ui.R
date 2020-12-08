@@ -3,9 +3,9 @@ library("plotly")
 
 # Chris' overview page --------
 overview_page <- tabPanel (
-  "Page one",
-  sidebarLayout(),
-  mainPanel()
+  "Data Visualization on Movies and TV Shows",
+  overview_side_panel,
+  overview_main_panel
 )
 
 overview_side_panel <- saidebarPanel(
