@@ -121,7 +121,7 @@ chart1_side_panel <- sidebarPanel(
 # creates main panel with actual bar graph for chart 1 page
 chart1_main_panel <- mainPanel(
   h1("What genres are most popular on each streaming platform?"),
-  h3("Do these align with other streaming platforms?"),
+  h2("Do these align with other streaming platforms?"),
   p("Our first question revolved around the popularity of various genres of TV
     Shows on each streaming platform, specifically if there was a most popular
     genre on each, and if so, how they aligned with the other streaming
