@@ -1,3 +1,17 @@
+/*changes the syles for various shinyApp elements*/
+
+/*changes the background color for the tab bar*/
+.navbar-default {
+  background-color: powderblue;
+}
+
+/*bolds the text for h4s to make them stand out more*/
 h4 {
   font-weight: bold;
+}
+
+/*changes the font and size of paragraph text*/
+p {
+  font-size: 16px;
+  font-family: Sans-Serif;
 }
