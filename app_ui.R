@@ -4,7 +4,7 @@ library("shinythemes")
 
 # Chris' overview page --------
 overview_page <- tabPanel(
-  "Data Visualization on Movies and TV Shows",
+  "Overview",
   sidebarLayout(
     overview_sidepanel,
     overview_mainpanel
@@ -70,8 +70,15 @@ chart1_side_panel <- sidebarPanel(
 chart1_main_panel <- mainPanel(
   h1("What genres are most popular on each streaming platform?"),
   h3("Do these align with other streaming platforms?"),
-  p("Our first question "),
-  plotlyOutput("chart1")
+  p("Our first question revolved around the popularity of various genres of TV
+    Shows on each streaming platform, specifically if there was a most popular
+    genre on each, and if so, how they aligned with the other streaming
+    platforms. The chart below compares the top n most popular genres
+    (controlled by the slider to the left) as percentages of the total shows on
+    each platform, in order to compare the popularity of TV show genres on
+    streaming platforms. Because we are comparing the counts of categorical
+    variables, we used a bar graph to visualize this analysis."),
+  plotlyOutput("chart1"),
 )
 
 #creates the actual chart 1 page
@@ -83,16 +90,13 @@ chart_page_one <- tabPanel(
   )
 )
 
-# ---------------------------
-
-
 
 
 #ui for creating shinyApp
 ui <- fluidPage(
   includeCSS("style.css"),
   navbarPage(
-  "Streaming Services",
+  "Data Visualization on Movies and TV Shows",
   overview_page,
   chart_page_one
   )
