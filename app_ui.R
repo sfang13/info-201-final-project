@@ -44,6 +44,7 @@ overview_mainpanel <- mainPanel(
 
 #creates side panel with widgets for chart 1 page
 chart1_side_panel <- sidebarPanel(
+  h2("Widgets"),
   selectInput(
     inputId = "color",
     label = "Chart Colors",
@@ -56,6 +57,13 @@ chart1_side_panel <- sidebarPanel(
       "Brown to Teal" = "BrBG",
       "Random" = "Paired"
     )
+  ),
+  sliderInput(
+    inputId = "number",
+    label = "Number of Genres to Show (per Platform)",
+    min = 1,
+    max = 5,
+    value = 3
   )
 )
 

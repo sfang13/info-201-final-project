@@ -5,7 +5,8 @@ library(RColorBrewer)
 library(plotly)
 library(lintr)
 
-chart_1 <- function(netflix_data, disney_data, amazon_data, color) {
+chart_1 <- function(netflix_data, disney_data, amazon_data, color,
+                    inputnumber) {
   #organizing and universalizing netflix data
   netflix_genres <- netflix_data %>%
     filter(type == "TV Show") %>%
@@ -26,7 +27,7 @@ chart_1 <- function(netflix_data, disney_data, amazon_data, color) {
     pull(sum_shows)
   netflix_genres <- netflix_genres %>%
     mutate(percent = round((n / netflix_total) * 100, 2)) %>%
-    top_n(5)
+    top_n(inputnumber)
 
 
   #organizing and universalizing disney+ data
@@ -51,7 +52,7 @@ chart_1 <- function(netflix_data, disney_data, amazon_data, color) {
     pull(sum_shows)
   disney_genres <- disney_genres %>%
     mutate(percent = round((n / disney_total) * 100, 2)) %>%
-    top_n(5)
+    top_n(inputnumber)
 
 
   #organizing and universalizing amazon prime video data
@@ -74,7 +75,7 @@ chart_1 <- function(netflix_data, disney_data, amazon_data, color) {
     pull(sum_shows)
   amazon_genres <- amazon_genres %>%
     mutate(percent = round((n / amazon_total) * 100, 2)) %>%
-    top_n(5)
+    top_n(inputnumber)
 
 
   #combining the three dataframes
@@ -96,3 +97,4 @@ chart_1 <- function(netflix_data, disney_data, amazon_data, color) {
   ggplotly(chart1)
 
 }
+
