@@ -4,39 +4,54 @@ library("shinythemes")
 
 # Chris' overview page --------
 overview_sidepanel <- sidebarPanel(
-  h2("test"),
-  p("test test")
+  tags$p(strong("Page one: Genres"), "What genres are most popular on each
+         streaming platform?"),
+  tags$p(strong("Page 2: Age Trends"), "What trends have emerged in producing
+         content for each age demographic?"),
+  tags$p(strong("Page 3: ---"), "---"),
+  tags$ul(
+    tags$li(helpText("Current best on-demand streaming services:",
+                     tags$a(href = "https://images.moneycontrol.com
+                            /static-mcnews/2020/04/Netflix_Disney_Prime_Video-770x433
+                            .jpg?impolicy=website&width=770&height=431",
+                            "Streaming Platforms")))
+  )
 )
 
 overview_mainpanel <- mainPanel(
-  h1("Overview"),
-  h2("Purpose:"),
-  p(
+  tags$h1("Overview"),
+  br(),
+  tags$img(src = "data/streaming_services", height = "100%", width = "100%"),
+  tags$h2("Purpose:"),
+  tags$p(
     "This project's purpose is to analyze TV shows and movies from",
     strong("Netflix"), ", ", strong("Amazon Prime"), ", and ",
     strong("Disney Plus"),
     "to give ourselves further insight and reveal trends that
     have developed over the years. "
   ),
-  h4("These are the sources we have used in this project:"),
-  a("     1. Netflix data",
+  tags$h4("These are the sources we have used in this project:"),
+  tags$a("     1. Netflix data",
     href = "https://www.kaggle.com/shivamb/netflix-shows"
   ),
-  a("     2. Disney Plus data",
+  br(),
+  tags$a("     2. Disney Plus data",
     href = "https://www.kaggle.com/unanimad/disney-plus-shows"
   ),
-  a("     3. Amazon Prime data",
+  br(),
+  tags$a("     3. Amazon Prime data",
     href = "https://www.kaggle.com/nilimajauhari/amazon-prime-tv-shows"
   ),
-  p("From this data observation, we will be able to answer
+  br(),
+  tags$p("From this data observation, we will be able to answer
     the following questions:"),
-  h5("What are the user demographics of various streaming platforms?
+  tags$h5("What are the user demographics of various streaming platforms?
      How have they changed over time?"),
-  h5("What genres are most popular on each streaming platform?
+  tags$h5("What genres are most popular on each streaming platform?
      How have the popular genres changed over time?"),
-  h5("How have the duration, ratings, viewers, and genres of tv shows and movies
+  tags$h5("How have the duration, ratings, viewers, and genres of tv shows and movies
      on various streaming platforms changed over the years? In 2020?"),
-  p("We will be using our skills that we've learned throughout this quarter to
+  tags$p("We will be using our skills that we've learned throughout this quarter to
     analyze the datasets and obtain valuable information from them."),
 )
 
