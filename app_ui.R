@@ -3,14 +3,6 @@ library("plotly")
 library("shinythemes")
 
 # Chris' overview page --------
-overview_page <- tabPanel(
-  "Overview",
-  sidebarLayout(
-    overview_sidepanel,
-    overview_mainpanel
-  )
-)
-
 overview_sidepanel <- sidebarPanel(
   h2("test"),
   p("test test")
@@ -39,6 +31,13 @@ overview_mainpanel <- mainPanel(
     analyze the datasets and obtain valuable information from them."),
 )
 
+overview_page <- tabPanel(
+  "Overview",
+  sidebarLayout(
+    overview_sidepanel,
+    overview_mainpanel
+  )
+)
 
 #hannah's chart page --------
 
@@ -90,7 +89,31 @@ chart_page_one <- tabPanel(
   )
 )
 
+# Sabrina's chart page --------
 
+chart_page_two <- tabPanel(
+  "Age Demographics",
+  sidebarLayout(
+    sidebarPanel(
+      h2("Widgets"),
+      sliderInput(
+        "mark_size",
+        label = "Change Size of Markers",
+        min = 1,
+        max = 10,
+        value = 5
+      )
+    ),
+    mainPanel(
+      h1("What trends have emerged in producing content for each age demographic?"),
+      h2("How has quarantine in 2020 influenced or changed these trends?"),
+      p("This chart attempts to show the amount of content produced for each age group every year on all of the streaming services to identify trends in content production and how the pandemic might have altered these trends. Specifically, the chart should help identify when content production was at its highest and lowest. This is done by comparing the # of Shows or Movies produced each year for each age group. Note that the age groups are classified by the Motion Picture Association film rating system."),
+      plotlyOutput("chart_2")
+    )
+  )
+)
+
+# ---------------------------
 
 #ui for creating shinyApp
 ui <- fluidPage(
@@ -98,6 +121,7 @@ ui <- fluidPage(
   navbarPage(
   "Data Visualization on Movies and TV Shows",
   overview_page,
-  chart_page_one
+  chart_page_one,
+  chart_page_two
   )
 )

@@ -27,4 +27,7 @@ server <- function(input, output) {
     return(chart_1(netflix_data, disney_data, amazon_data, input$color,
                    input$number))
   )
+  output$chart_2 <- renderPlotly(
+    return(ratings_plot(amazon_data, disney_data, netflix_data, input$mark_size))
+  )
 }
