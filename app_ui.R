@@ -207,6 +207,10 @@ chart_page_three <- tabPanel(
 
 summary <- tabPanel(
   "Summary",
+  fluidPage(
+    h2("Age Demographics Takeaways"),
+    p("This chart reveals a content growth trend for each age group, and that content grows at a different rate for each age group. Approaching 2018, the amount of content rated R seemed to increase at an exponential rate, while the content growth rate of NC-17 material seemed to remain static. In addition, most age groups had the max amount of content production in 2018, which indicates that streaming services were heavily saturated with new content in 2018. Specifically, 525 peices of content rated R and 350 peices of content rated PG-13 was released in 2018, which is the largest amount of content ever released in a year for both categories. However, most age groups experienced a content decline in 2019, and an even steeper decline in 2020. For example, only 27 peices of content rated R has been released, which is significantly lower than the 446 peices of content rated R released in 2019. Though the growth rate of content per age group is different, production often increases and decreases at the same time for all age groups. The overall decline in 2020 is likely correlated with the pandemic, as the economy and and production process has been slowed. Even though the data is not complete (because 2020 is not over), it is unlikely that enough content will be produced in any age group to surpass growth rates leading up to 2018. Although the exponential increase of rated R material can not be explained by this chart, it suggests that interest in rated R content has increased, resulting in a wider audience and more revenue.")
+  )
 )
 
 # ui for creating shinyApp
