@@ -8,7 +8,8 @@ overview_sidepanel <- sidebarPanel(
          streaming platform?"),
   tags$p(strong("Page 2: Age Demographics"), "What trends have emerged in producing
          content for each age demographic?"),
-  tags$p(strong("Page 3: ---"), "---"),
+  tags$p(strong("Page 3: Rating demographics"), "Does the length of a movie affect
+         its rating outcome?"),
   tags$h4("Current best selling TV streaming platforms:"),
   tags$ol(
     tags$li("HBO Now"),
@@ -17,12 +18,12 @@ overview_sidepanel <- sidebarPanel(
     tags$li("Sling TV"),
     tags$li("Amazon Prime"),
   ),
-  tags$img(src = "our_services2.jpg", height = "85%", width = "85%"),
+  tags$img(src = "streaming_services.jpg", height = "85%", width = "85%"),
 )
 
 overview_mainpanel <- mainPanel(
   tags$h1("Overview"),
-  tags$img(src = "streaming_services.jpg", height = "60%", width = "60%"),
+  tags$img(src = "our_services2.jpg", height = "85%", width = "85%"),
   tags$h2("Purpose:"),
   tags$p("Movies and TV Shows have been anjoyed across the world for many years
          now since the boom of TV streaming platforms. Platforms such as Netflix,
@@ -162,7 +163,7 @@ chart_page_three <- tabPanel(
       radioButtons(
         inputId = "data_val",
         label = ("Streaming Service"),
-        choices = list("Netflix" = 1, "Disney+" = 2),
+        choices = list("Disney+" = 1, "Netflix" = 2),
         selected = 1
       )
     ),
