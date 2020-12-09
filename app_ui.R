@@ -24,13 +24,16 @@ overview_mainpanel <- mainPanel(
   tags$h1("Overview"),
   tags$img(src = "streaming_services.jpg", height = "60%", width = "60%"),
   tags$h2("Purpose:"),
-  tags$p(
-    "This project's purpose is to analyze TV shows and movies from",
-    strong("Netflix"), ", ", strong("Amazon Prime"), ", and ",
-    strong("Disney Plus"),
-    "to give ourselves further insight and reveal trends that
-    have developed over the years. "
-  ),
+  tags$p("Movies and TV Shows have been anjoyed across the world for many years
+         now since the boom of TV streaming platforms. Platforms such as Netflix,
+         Hulu, Disney +, Amazon Prime, etc, have help substitute the cinema
+         and theatre experience that was cut off since quarantine started. Now
+         families can sit back and relax at home as they watch their favourite
+         TV shows or movies with their families and friends. In this project,
+         we will be analyzing and transforming data from",
+         strong("Netflix"), ", ", strong("Amazon Prime"), ", and ",
+         strong("Disney Plus"), "to discover trends and reveal insight into
+         how the movie industry has changed from the past up until the present."),
   tags$h4("These are the sources we have used in this project:"),
   tags$a("     1. Netflix data",
     href = "https://www.kaggle.com/shivamb/netflix-shows"
@@ -56,7 +59,7 @@ overview_mainpanel <- mainPanel(
        on various streaming platforms changed over the years? In 2020?")
   ),
   tags$p("We will be using our skills that we've learned throughout this quarter to
-      analyze and filter trought the data sets to obtain valuable information from them.")
+      analyze and filter through the data sets and examine the information results.")
 )
 
 overview_page <- tabPanel(
