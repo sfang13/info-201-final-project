@@ -203,7 +203,11 @@ chart_page_three <- tabPanel(
   )
 )
 
-# ---------------------------
+# Summary Page ---------------
+
+summary <- tabPanel(
+  "Summary",
+)
 
 # ui for creating shinyApp
 ui <- fluidPage(
@@ -213,6 +217,7 @@ ui <- fluidPage(
     overview_page,
     chart_page_one,
     chart_page_two,
-    chart_page_three
+    chart_page_three,
+    summary
   )
 )
