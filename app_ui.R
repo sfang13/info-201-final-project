@@ -4,12 +4,26 @@ library("shinythemes")
 
 # Chris' overview page --------
 overview_sidepanel <- sidebarPanel(
-  tags$p(strong("Page one: Genre Popularity"), "What genres are most popular on each
-         streaming platform?"),
-  tags$p(strong("Page 2: Age Demographics"), "What trends have emerged in producing
-         content for each age demographic?"),
-  tags$p(strong("Page 3: Rating demographics"), "Does the length of a movie affect
-         its rating outcome?"),
+  tags$p(
+    strong("Page one: Genre Popularity"),
+    "What genres are most popular on each
+         streaming platform?"
+  ),
+  tags$p(
+    strong("Page 2: Age Demographics"),
+    "What trends have emerged in producing content
+         for each age demographic?"
+  ),
+  tags$p(
+    strong("Page 3: Rating demographics"),
+    "Does the length of a movie affect
+         its rating outcome?"
+  ),
+  tags$p(
+    strong("Page 4: Conclusions"),
+    "Our takeaways and what we've learned from
+         analyzing the data"
+  ),
   tags$h4("Current best selling TV streaming platforms:"),
   tags$ol(
     tags$li("HBO Now"),
@@ -25,16 +39,20 @@ overview_mainpanel <- mainPanel(
   tags$h1("Overview"),
   tags$img(src = "our_services2.jpg", height = "85%", width = "85%"),
   tags$h2("Purpose:"),
-  tags$p("Movies and TV Shows have been anjoyed across the world for many years
-         now since the boom of TV streaming platforms. Platforms such as Netflix,
-         Hulu, Disney +, Amazon Prime, etc, have help substitute the cinema
-         and theatre experience that was cut off since quarantine started. Now
-         families can sit back and relax at home as they watch their favourite
-         TV shows or movies with their families and friends. In this project,
-         we will be analyzing and transforming data from",
-         strong("Netflix"), ", ", strong("Amazon Prime"), ", and ",
-         strong("Disney Plus"), "to discover trends and reveal insight into
-         how the movie industry has changed from the past up until the present."),
+  tags$p(
+    "Movies and TV Shows have been anjoyed across the world
+         for many years now since the boom of TV streaming platforms.
+         Platforms such as Netflix, Hulu, Disney +, Amazon Prime,
+         etc, have help substitute the cinema and theatre experience
+         that was cut off since quarantine started. Now
+         families can sit back and relax at home as they watch their
+         favourite TV shows or movies with their families and friends.
+         In this project, we will be analyzing and transforming data from",
+    strong("Netflix"), ", ", strong("Amazon Prime"), ", and ",
+    strong("Disney Plus"), "to discover trends and reveal insight into
+         how the movie industry has changed from the
+         past up until the present."
+  ),
   tags$h4("These are the sources we have used in this project:"),
   tags$a("     1. Netflix data",
     href = "https://www.kaggle.com/shivamb/netflix-shows"
@@ -52,15 +70,18 @@ overview_mainpanel <- mainPanel(
   tags$p("From this data observation, we will be able to answer
     the following questions:"),
   tags$ul(
-    tags$li("What are the user demographics of various streaming platforms?
+    tags$li("What are the user demographics of various
+       streaming platforms?
        How have they changed over time?"),
     tags$li("What genres are most popular on each streaming platform?
        How have the popular genres changed over time?"),
-    tags$li("How have the duration, ratings, viewers, and genres of tv shows and movies
+    tags$li("How have the duration, ratings, viewers,
+       and genres of tv shows and movies
        on various streaming platforms changed over the years? In 2020?")
   ),
-  tags$p("We will be using our skills that we've learned throughout this quarter to
-      analyze and filter through the data sets and examine the information results.")
+  tags$p("We will be using our skills that we've
+         learned throughout this quarter to analyze and filter
+         through the data sets and examine the information results.")
 )
 
 overview_page <- tabPanel(
@@ -170,19 +191,23 @@ chart_page_three <- tabPanel(
     mainPanel(
       h1("How do the runtime of movies effect the ratings, if at all?"),
       h2("Does how long a movie is effect how critically acclaimed it is?"),
-      p("This chart organizes the IMDB ratings of movies from two streaming 
-        services based on their runtime to find how movie runtime correlates 
-        with IMDB rating and also identify the most popular movie rating and 
-        runtime on each streaming service. This was done by comparing IMDB 
+      p("This chart organizes the IMDB ratings of movies from two streaming
+        with IMDB rating and also identify the most popular movie rating and
+        services based on their runtime to find how movie runtime correlates
+        runtime on each streaming service. This was done by comparing IMDB
         ratings to runtimes to locate runtimes and ratings with a high (or low)
-        concentration of movies. Note that that runtime is the total duration 
+        concentration of movies. Note that that runtime is the total duration
         of a film, so TV Shows can not be included in this chart."),
       plotlyOutput("chart_3")
     )
   )
 )
 
-# ---------------------------
+# Summary Page ---------------
+
+summary <- tabPanel(
+  "Summary",
+)
 
 # ui for creating shinyApp
 ui <- fluidPage(
@@ -192,6 +217,7 @@ ui <- fluidPage(
     overview_page,
     chart_page_one,
     chart_page_two,
-    chart_page_three
+    chart_page_three,
+    summary
   )
 )
