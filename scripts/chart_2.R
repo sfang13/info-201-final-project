@@ -68,21 +68,23 @@ ratings_plot <- function(amazon_data, disney_data, netflix_data, mark_size) {
       )) %>%
     filter(!is.na(year))
   # line plot of ratings by year
-  plot_ly(data = ratings_by_year,
-          x = ~year,
-          y = ~num_rated,
-          name = ~mpa_rating,
-          type = "scatter",
-          mode = "lines+markers",
-          color = ~mpa_rating,
-          text = ~paste("Release Year:",
-                        year,
-                        "<br># of Movies/Shows:",
-                        num_rated
-                        ),
-          colors = c("#5ab4ac", "coral", "maroon", "firebrick1", "olivedrab4"),
-          marker = list(size = mark_size)
-          ) %>%
+  plot_ly(
+    data = ratings_by_year,
+    x = ~year,
+    y = ~num_rated,
+    name = ~mpa_rating,
+    type = "scatter",
+    mode = "lines+markers",
+    color = ~mpa_rating,
+    text = ~ paste(
+      "Release Year:",
+      year,
+      "<br># of Movies/Shows:",
+      num_rated
+    ),
+    colors = c("#5ab4ac", "coral", "maroon", "firebrick1", "olivedrab4"),
+    marker = list(size = mark_size)
+  ) %>%
     layout(
       title = paste(
         "Content on Streaming Services",

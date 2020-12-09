@@ -11,14 +11,23 @@ overview_sidepanel <- sidebarPanel(
 overview_mainpanel <- mainPanel(
   h1("Overview"),
   h2("Purpose:"),
-  p("This project's purpose is to analyze TV shows and movies from",
-    strong("Netflix"), ", ", strong("Amazon Prime"), ", and ", strong("Disney Plus"), 
+  p(
+    "This project's purpose is to analyze TV shows and movies from",
+    strong("Netflix"), ", ", strong("Amazon Prime"), ", and ",
+    strong("Disney Plus"),
     "to give ourselves further insight and reveal trends that
-    have developed over the years. "),
+    have developed over the years. "
+  ),
   h4("These are the sources we have used in this project:"),
-  a("     1. Netflix data", href="https://www.kaggle.com/shivamb/netflix-shows"),
-  a("     2. Disney Plus data", href="https://www.kaggle.com/unanimad/disney-plus-shows"),
-  a("     3. Amazon Prime data", href="https://www.kaggle.com/nilimajauhari/amazon-prime-tv-shows"),
+  a("     1. Netflix data",
+    href = "https://www.kaggle.com/shivamb/netflix-shows"
+  ),
+  a("     2. Disney Plus data",
+    href = "https://www.kaggle.com/unanimad/disney-plus-shows"
+  ),
+  a("     3. Amazon Prime data",
+    href = "https://www.kaggle.com/nilimajauhari/amazon-prime-tv-shows"
+  ),
   p("From this data observation, we will be able to answer
     the following questions:"),
   h5("What are the user demographics of various streaming platforms?
@@ -39,9 +48,9 @@ overview_page <- tabPanel(
   )
 )
 
-#hannah's chart page --------
+# hannah's chart page --------
 
-#creates side panel with widgets for chart 1 page
+# creates side panel with widgets for chart 1 page
 chart1_side_panel <- sidebarPanel(
   h2("Widgets"),
   selectInput(
@@ -65,7 +74,7 @@ chart1_side_panel <- sidebarPanel(
   )
 )
 
-#creates main panel with actual bar graph for chart 1 page
+# creates main panel with actual bar graph for chart 1 page
 chart1_main_panel <- mainPanel(
   h1("What genres are most popular on each streaming platform?"),
   h3("Do these align with other streaming platforms?"),
@@ -80,7 +89,7 @@ chart1_main_panel <- mainPanel(
   plotlyOutput("chart1"),
 )
 
-#creates the actual chart 1 page
+# creates the actual chart 1 page
 chart_page_one <- tabPanel(
   "Genre Popularity",
   sidebarLayout(
@@ -105,9 +114,17 @@ chart_page_two <- tabPanel(
       )
     ),
     mainPanel(
-      h1("What trends have emerged in producing content for each age demographic?"),
+      h1("What trends have emerged in producing content for each age
+         demographic?"),
       h2("How has quarantine in 2020 influenced or changed these trends?"),
-      p("This chart attempts to show the amount of content produced for each age group every year on all of the streaming services to identify trends in content production and how the pandemic might have altered these trends. Specifically, the chart should help identify when content production was at its highest and lowest. This is done by comparing the # of Shows or Movies produced each year for each age group. Note that the age groups are classified by the Motion Picture Association film rating system."),
+      p("This chart attempts to show the amount of content produced for each
+        age group every year on all of the streaming services to identify
+        trends in content production and how the pandemic might have altered
+        these trends. Specifically, the chart should help identify when content
+        production was at its highest and lowest. This is done by comparing the
+        # of Shows or Movies produced each year for each age group. Note that
+        the age groups are classified by the Motion Picture Association film
+        rating system."),
       plotlyOutput("chart_2")
     )
   )
@@ -115,13 +132,13 @@ chart_page_two <- tabPanel(
 
 # ---------------------------
 
-#ui for creating shinyApp
+# ui for creating shinyApp
 ui <- fluidPage(
   includeCSS("style.css"),
   navbarPage(
-  "Data Visualization on Movies and TV Shows",
-  overview_page,
-  chart_page_one,
-  chart_page_two
+    "Data Visualization on Movies and TV Shows",
+    overview_page,
+    chart_page_one,
+    chart_page_two
   )
 )
