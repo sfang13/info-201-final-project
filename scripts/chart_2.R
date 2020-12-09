@@ -4,10 +4,11 @@ library("dplyr")
 library("plotly")
 library("ggplot2")
 library("stringr")
+library("shiny")
 
 # writing line plot function
 
-ratings_plot <- function(amazon_data, disney_data, netflix_data) {
+ratings_plot <- function(amazon_data, disney_data, netflix_data, mark_size) {
   # filtering for year and rating
   all_ratings <- amazon_data %>%
     select(Year.of.release, Age.of.viewers) %>%
@@ -76,14 +77,17 @@ ratings_plot <- function(amazon_data, disney_data, netflix_data) {
     mode = "lines+markers",
     color = ~mpa_rating,
     text = ~ paste(
-      "Release Year:", year, "<br># of Movies/Shows:",
+      "Release Year:",
+      year,
+      "<br># of Movies/Shows:",
       num_rated
     ),
-    colors = c("#5ab4ac", "coral", "maroon", "firebrick1", "olivedrab4")
+    colors = c("#5ab4ac", "coral", "maroon", "firebrick1", "olivedrab4"),
+    marker = list(size = mark_size)
   ) %>%
     layout(
       title = paste(
-        "Content On Netflix, Amazon Prime, and Disney+",
+        "Content on Streaming Services",
         "By Age Demographic and Release Year"
       ),
       xaxis = list(title = "Release Year"),
