@@ -6,7 +6,7 @@ library("stringr")
 
 # writing scatter plot function
 
-imdb_ratings_plot <- function(disney_data, netflix_2_data) {
+imdb_ratings_plot <- function(disney_data, netflix_2_data, data_val) {
   # organizing rating by runtime for plot
   rating_by_runtime <- disney_data %>%
     filter(

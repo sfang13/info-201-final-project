@@ -159,12 +159,11 @@ chart_page_three <- tabPanel(
   sidebarLayout(
     sidebarPanel(
       h2("Widgets"),
-      sliderInput(
-        "opacity_strength",
-        label = "Change Size of Markers",
-        min = 0,
-        max = 10,
-        value = 5
+      radioButtons(
+        inputId = "data_val",
+        label = ("Streaming Service"),
+        choices = list("Netflix" = 1, "Disney+" = 2),
+        selected = 1
       )
     ),
     mainPanel(
