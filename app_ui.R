@@ -47,20 +47,19 @@ chart1_side_panel <- sidebarPanel(
   h2("Widgets"),
   selectInput(
     inputId = "color",
-    label = "Chart Colors",
+    label = h4("Chart Colors"),
     choices = list(
       "Rainbow" = "Spectral",
       "Red to Green" = "RdYlGn",
       "Red to Blue" = "RdYlBu",
       "Pink to Green" = "PiYG",
-      "Purple to Green" = "PRGn",
       "Brown to Teal" = "BrBG",
       "Random" = "Paired"
     )
   ),
   sliderInput(
     inputId = "number",
-    label = "Number of Genres to Show (per Platform)",
+    label = h4("Number of Genres to Show (per Platform)"),
     min = 1,
     max = 5,
     value = 3
@@ -70,14 +69,14 @@ chart1_side_panel <- sidebarPanel(
 #creates main panel with actual bar graph for chart 1 page
 chart1_main_panel <- mainPanel(
   h1("What genres are most popular on each streaming platform?"),
-  h2("Do these align with other streaming platforms?"),
+  h3("Do these align with other streaming platforms?"),
   p("Our first question "),
   plotlyOutput("chart1")
 )
 
 #creates the actual chart 1 page
 chart_page_one <- tabPanel(
-  "Popularity of Genres for TV Shows",
+  "Genre Popularity",
   sidebarLayout(
     chart1_side_panel,
     chart1_main_panel
