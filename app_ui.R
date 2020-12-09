@@ -155,30 +155,28 @@ chart_page_two <- tabPanel(
 # Ryu's chart page --------
 
 chart_page_three <- tabPanel(
-  "Age Demographics",
+  "Ratings v Runtime",
   sidebarLayout(
     sidebarPanel(
       h2("Widgets"),
       sliderInput(
-        "mark_size",
+        "opacity_strength",
         label = "Change Size of Markers",
-        min = 1,
+        min = 0,
         max = 10,
         value = 5
       )
     ),
     mainPanel(
-      h1("What trends have emerged in producing content for each age
-         demographic?"),
-      h2("How has quarantine in 2020 influenced or changed these trends?"),
-      p("This chart attempts to show the amount of content produced for each
-        age group every year on all of the streaming services to identify
-        trends in content production and how the pandemic might have altered
-        these trends. Specifically, the chart should help identify when content
-        production was at its highest and lowest. This is done by comparing the
-        # of Shows or Movies produced each year for each age group. Note that
-        the age groups are classified by the Motion Picture Association film
-        rating system."),
+      h1("How do the runtime of movies effect the ratings, if at all?"),
+      h2("Does how long a movie is effect how critically acclaimed it is?"),
+      p("This chart organizes the IMDB ratings of movies from two streaming 
+        services based on their runtime to find how movie runtime correlates 
+        with IMDB rating and also identify the most popular movie rating and 
+        runtime on each streaming service. This was done by comparing IMDB 
+        ratings to runtimes to locate runtimes and ratings with a high (or low)
+        concentration of movies. Note that that runtime is the total duration 
+        of a film, so TV Shows can not be included in this chart."),
       plotlyOutput("chart_3")
     )
   )

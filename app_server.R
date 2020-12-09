@@ -38,7 +38,7 @@ server <- function(input, output) {
   output$chart_3 <- renderPlotly(
     return(ratings_plot(
       disney_data, netflix_2_data,
-      input$mark_size
+      input$opacity_strength
     ))
   )
 }
