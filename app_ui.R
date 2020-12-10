@@ -208,6 +208,7 @@ chart_page_three <- tabPanel(
 summary <- tabPanel(
   "Summary",
   fluidPage(
+    h1("Data Visualization Takeaways"),
     h2("Age Demographics Takeaways"),
     p("This chart reveals a content growth trend for each age group, and that
       content grows at a different rate for each age group. Approaching 2018,
