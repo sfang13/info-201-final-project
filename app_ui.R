@@ -187,7 +187,7 @@ chart_page_three <- tabPanel(
       sliderInput(
         "opac_data",
         label = h4("Change Opacity of Markers"),
-        min = 0,
+        min = 0.1,
         max = 1,
         value = 0.5
       )
