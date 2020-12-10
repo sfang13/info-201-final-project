@@ -16,12 +16,14 @@ p {
   font-family: "Georgia", Times, Serif;
 }
 
+/*adds a background to and bolds main headers*/
 h1 {
   font-weight: bold;
   background-color: lightsteelblue;
   padding: 5px;
 }
 
+/*italicizes secondary headers*/
 h2 {
   font-style: italic;
 }

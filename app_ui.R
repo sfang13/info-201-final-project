@@ -151,7 +151,7 @@ chart_page_two <- tabPanel(
       h2("Widgets"),
       sliderInput(
         "mark_size",
-        label = "Change Size of Markers",
+        label = h4("Change Size of Markers"),
         min = 1,
         max = 10,
         value = 5
@@ -183,7 +183,7 @@ chart_page_three <- tabPanel(
       h2("Widgets"),
       radioButtons(
         inputId = "data_val",
-        label = ("Streaming Service"),
+        label = h4("Streaming Service"),
         choices = list("Disney+" = 1, "Netflix" = 2),
         selected = 1
       )
@@ -209,6 +209,29 @@ summary <- tabPanel(
   "Summary",
   fluidPage(
     h1("Data Visualization Takeaways"),
+    h2("Genre Popularity Takeaways"),
+    p("This chart reveals that there are definitely most popular genres for each
+      platform, and that they vary between platforms. For example, the most
+      popular genre on Disney+, by far, is Animation, at 52.41% of its total TV
+      streaming library, while the most popular on Amazon Prime Video is Drama
+      at 51.15%, and the most popular on Netflix is International at 39.61%.
+      While there are definitely potential questions in how these shows' genres
+      were defined (what exactly constitutes a Drama, for example?), this
+      does reveal some interesting insights into the popularity of various
+      genres on these streaming services, as well as potentially how these
+      platforms have optimized to increase their subscriptions and revenue. For
+      example, there is very little overlap in the most popular genres on each
+      platform (Comedy, Documentary, Kids, and Action are the only overlapping
+      genres between the platforms, and not one of them made it into the top 5
+      in all 3 platforms). In addition, the most popular genre on each platform
+      didn't make it to the top 5 most popular genres for either of the other
+      platforms. While this could be a coincidence, this could also be an
+      intentional action on behalf of the streaming platforms to increase
+      subscriptions and maximize revenue by seeking to fill a niche/provide
+      primarily content users would be unable to find on other platforms, thus
+      increasing the chances that the average person subscribes to all three
+      platforms instead of just one and therein maximizing the profits of all
+      three companies."),
     h2("Age Demographics Takeaways"),
     p("This chart reveals a content growth trend for each age group, and that
       content grows at a different rate for each age group. Approaching 2018,
