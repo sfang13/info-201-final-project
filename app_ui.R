@@ -40,7 +40,7 @@ overview_mainpanel <- mainPanel(
   tags$img(src = "our_services2.jpg", height = "85%", width = "85%"),
   tags$h2("Purpose:"),
   tags$p(
-    "Movies and TV Shows have been anjoyed across the world
+    "Movies and TV Shows have been enjoyed across the world
          for many years now since the boom of TV streaming platforms.
          Platforms such as Netflix, Hulu, Disney +, Amazon Prime,
          etc, have help substitute the cinema and theatre experience
