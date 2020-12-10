@@ -58,11 +58,14 @@ overview_mainpanel <- mainPanel(
     href = "https://www.kaggle.com/shivamb/netflix-shows"
   ),
   br(),
-  tags$a("     2. Disney Plus data",
+  tags$a("     2. Second Netflix data source",
+         href = "https://www.kaggle.com/sarahjeeeze/imdbfile"),
+  br(),
+  tags$a("     3. Disney Plus data",
     href = "https://www.kaggle.com/unanimad/disney-plus-shows"
   ),
   br(),
-  tags$a("     3. Amazon Prime data",
+  tags$a("     4. Amazon Prime data",
     href = "https://www.kaggle.com/nilimajauhari/amazon-prime-tv-shows"
   ),
   br(),
