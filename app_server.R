@@ -38,7 +38,7 @@ server <- function(input, output) {
   output$chart_3 <- renderPlotly(
     return(imdb_ratings_plot(
       disney_data, netflix_2_data,
-      input$data_val
+      input$opac_data
     ))
   )
 }

@@ -184,11 +184,12 @@ chart_page_three <- tabPanel(
   sidebarLayout(
     sidebarPanel(
       h2("Widgets"),
-      radioButtons(
-        inputId = "data_val",
-        label = h4("Streaming Service"),
-        choices = list("Disney+" = 1, "Netflix" = 2),
-        selected = 1
+      sliderInput(
+        "opac_data",
+        label = h4("Change Opacity of Markers"),
+        min = 0,
+        max = 1,
+        value = 0.5
       )
     ),
     mainPanel(
@@ -257,7 +258,26 @@ summary <- tabPanel(
       growth rates leading up to 2018. Although the exponential increase of
       rated R material can not be explained by this chart, it suggests that
       interest in rated R content has increased, resulting in a wider audience
-      and more revenue.")
+      and more revenue."),
+    h2("Ratings v Runtime Takeaways"),
+    p("This chart reveals movie runtimes and IMDB ratings which have the highest
+      concentration of movies from Netflix and Disney+. For example, the highest
+      concentration of movies from Netflix exists where the IMDB rating is 7. 
+      In contrast, the highest concentration of movies from Disney+ exists 
+      where the IMDB rating is 6.5. In addition, Netflix has multiple films 
+      with a rating of 0, while Disney+ has a group of films with runtimes 
+      between 0 and 15 minutes. Most movies in both streaming services have a 
+      rating greater than 3 or less than 9, indicating that movies from Netflix
+      and Disney+ deviate from their average IMDB rating a similar amount. 
+      Netflix has more movies and a higher average IMDB rating than Disney+, 
+      which likely accounts for part of its large subscriber base. Thus, this 
+      chart illustrates how Netflix motivates its subscriber base with a larger
+      amount of films because its average IMDB rating is not significantly 
+      higher than the average rating for Disney+. The highest rated movie on 
+      Netflix is 66 minutes while the highest rated movie on Disney+ is 124 
+      minutes, which suggests that Disney+ contains longer films which attract 
+      wider audiences while Netflix contains shorts films which attract wider 
+      audiences.")
   )
 )
 

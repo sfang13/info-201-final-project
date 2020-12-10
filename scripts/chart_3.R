@@ -6,7 +6,7 @@ library("stringr")
 
 # writing scatter plot function
 
-imdb_ratings_plot <- function(disney_data, netflix_2_data, input_val) {
+imdb_ratings_plot <- function(disney_data, netflix_2_data, opac_data) {
   # organizing rating by runtime for plot
   rating_by_runtime <- disney_data %>%
     filter(
@@ -36,7 +36,7 @@ imdb_ratings_plot <- function(disney_data, netflix_2_data, input_val) {
       runtime
     ),
     colors = c("tomato", "olivedrab4"),
-    opacity = 0.5
+    opacity = opac_data
   ) %>%
     layout(
       title = "Movies On Netflix and Disney+ By Rating and Duration",
